@@ -96,38 +96,38 @@
 console.log('person1:shows ticket');
 console.log('person2:shows ticket');
 
-const preMovie =async ()=> {
+// const preMovie =async ()=> {
   
-    const promiseWifeBringsTickets = new Promise((resolve, reject) => {
-    setTimeout(() => resolve('tickets'), 3000);
-});
+//     const promiseWifeBringsTickets = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve('tickets'), 3000);
+// });
  
-//-------- using promise all in Async await ------------------////
+// //-------- using promise all in Async await ------------------////
 
-const getPopcorn = new Promise((resolve,reject)=>resolve(`popcorn`));
-const getButter = new Promise((resolve,reject) => resolve(`butter`));
-const getColdDrinks =new Promise((resolve,reject) => resolve(`ColdDrinks`));
+// const getPopcorn = new Promise((resolve,reject)=>resolve(`popcorn`));
+// const getButter = new Promise((resolve,reject) => resolve(`butter`));
+// const getColdDrinks =new Promise((resolve,reject) => resolve(`ColdDrinks`));
 
-let ticket = await promiseWifeBringsTickets;
+// let ticket = await promiseWifeBringsTickets;
 
-let [Popcorn, Butter ,Colddrinks] = await Promise.all([getPopcorn ,getButter , getColdDrinks]);
-console.log(`${Popcorn} ,${Butter} , ${Colddrinks}`)
+// let [Popcorn, Butter ,Colddrinks] = await Promise.all([getPopcorn ,getButter , getColdDrinks]);
+// console.log(`${Popcorn} ,${Butter} , ${Colddrinks}`)
 
 
 // // // ------Using error handling------------------//
 
-// const preMovie =async ()=> {
+const preMovie =async ()=> {
   
-//     const promiseWifeBringsTickets = new Promise((resolve, reject) => {
-//     setTimeout(() => reject('tickets'), 3000);
-// });
+    const promiseWifeBringsTickets = new Promise((resolve, reject) => {
+    setTimeout(() => reject('tickets'), 3000);
+});
 
-// let ticket
-// try {
-//     ticket=await promiseWifeBringsTickets;
-// } catch (e) {
-//     ticket = 'sad face';
-// }
+let ticket
+try {
+    ticket=await promiseWifeBringsTickets;
+} catch (e) {
+    ticket = 'sad face';
+}
 
 return ticket;
 
