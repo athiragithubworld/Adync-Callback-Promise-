@@ -16,8 +16,26 @@ const posts=[
 //   },1000);
 // }
 
-function createPost(post ){
-    return new Promise((resolve, reject) => {
+// function createPost(post ){
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//             posts.push({...post,CreatedAt:new Date().getTime()});
+//         //  console.log(posts);
+//             const error = false;
+//          if(!error){
+//             resolve(posts);
+//             // deletePost();
+//          } 
+//          else{
+//             reject('Error: Something went wrong')
+//          }
+//         }, 1000);
+//     });
+// }
+
+// async await function used for createPost
+async function createPost(post ){
+    const newPost = new Promise((resolve, reject) => {
       setTimeout(() => {
             posts.push({...post,CreatedAt:new Date().getTime()});
         //  console.log(posts);
@@ -29,8 +47,11 @@ function createPost(post ){
          else{
             reject('Error: Something went wrong')
          }
-        }, 0000);
+        }, 1000);
     });
+
+    let createdPost = await newPost;
+    return createdPost;
 }
 
 const users = [{
@@ -50,8 +71,25 @@ function updateLastUserActivityTime(){
     })
 }
 
-function deletePost(){
-    return new Promise((resolve, reject) => {
+// function deletePost(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(()  =>{
+//             if(posts.length>0){
+//                 posts.pop();
+//                 resolve(posts);
+                
+//             }
+//             else{
+//                 reject('Array is Empty now')
+//             }
+//         },1000);
+       
+//     });
+
+// }
+//  using Async await in delete post
+async function deletePost(){
+    const Del = new Promise((resolve, reject) => {
         setTimeout(()  =>{
             if(posts.length>0){
                 posts.pop();
@@ -64,8 +102,13 @@ function deletePost(){
         },1000);
        
     });
+    let DeletedPost = await Del;
+    return DeletedPost;
 
 }
+
+
+
 
 
 
@@ -80,15 +123,7 @@ console.log(values);
            }) 
         
         // console.log(posts);  
-    
 
-
-
-
-// console.log(posts);
-// const lasttime = updateLastUserActivityTime();
-// console.log(" Last activity time after the post created : ",lasttime)
-// return posts;
 });
 
 
